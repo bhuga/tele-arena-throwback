@@ -1,0 +1,42 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.1.9)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
+    addressable (2.3.7)
+    coderay (1.1.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    dotenv (1.0.2)
+    i18n (0.7.0)
+    json (1.8.2)
+    method_source (0.8.2)
+    minitest (5.5.1)
+    pry (0.10.0)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rake (10.1.1)
+    safe_yaml (1.0.4)
+    slop (3.6.0)
+    thread_safe (0.3.4)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport (~> 4.1.8)
+  dotenv
+  minitest (~> 5.1)
+  pry (= 0.10)
+  rake (~> 10.1.0)
+  webmock (~> 1.20.4)
