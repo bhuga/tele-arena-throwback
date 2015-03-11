@@ -59,7 +59,7 @@ class Connection
 
   def send(data)
     if data.start_with?("script")
-      run_script(data)
+      parse_script(data)
     else
       input_buffer << data
     end
@@ -74,15 +74,20 @@ class Connection
   end
 
   def deregister_script(script)
+    puts "script deregistered!"
     @scripts.delete script
   end
 
-  def run_script(script_command)
-    _, script, args = script_command.split(/\s+/, 3)
-    args = args.split(/\s+/)
+  def parse_script(input)
+    _, script, args = input.split(/\s+/, 3)
+    run_script(script, *args)
+  end
+
+  def run_script(script, *args)
     puts "running script: #{script} #{args.inspect}"
     load "scripts/#{script}.rb"
-    Scripts.const_get(script.camelize).new(self, *args)
+    script = Scripts.const_get(script.camelize).new(self, *args)
+    register_script script
     puts "script run!"
   end
 

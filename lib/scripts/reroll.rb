@@ -25,7 +25,6 @@ module Scripts
 
       @target = args.map(&:to_i)
       @last_stats = ""
-      conn.register_script(self)
       puts "reroll registered"
       conn.send_command "st"
     end
