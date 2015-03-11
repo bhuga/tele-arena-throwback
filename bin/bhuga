@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require_relative "../lib/setup"
+
+conn = Connection.new ENV["DEFAULT_HOST"]
+
+conn.run_script "login"
+conn.blocking_read_loop!
