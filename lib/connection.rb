@@ -85,4 +85,13 @@ class Connection
     Scripts.const_get(script.camelize).new(self, *args)
     puts "script run!"
   end
+
+  def blocking_read_loop!
+    $stdin.echo = true
+
+    while line = $stdin.gets
+      line = line.gsub "\n", "\r\n"
+      send line
+    end
+  end
 end

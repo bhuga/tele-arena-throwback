@@ -1,12 +1,6 @@
 #!/usr/bin/env ruby
 require_relative "../lib/setup"
-require "io/console"
 
 conn = Connection.new ENV["DEFAULT_HOST"]
 
-$stdin.echo = true
-
-while line = $stdin.gets
-  line = line.gsub "\n", "\r\n"
-  conn.send line
-end
+conn.blocking_read_loop!
